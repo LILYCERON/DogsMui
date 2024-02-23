@@ -11,8 +11,7 @@ const router = Router();
 router.get('/dogs', async (req, res) => {
 
     const breed = req.query.name
-    console.log(breed)
-    console.log(isNaN(breed))
+
     const dogsApi = await fetch('https://api.thedogapi.com/v1/breeds').then(data => data.json())
 
     if (breed === undefined) {
