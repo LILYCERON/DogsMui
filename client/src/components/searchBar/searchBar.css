@@ -1,0 +1,10 @@
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    background-color:dodgerblue;
+    border-radius: 15rem;
+    margin-left: 25rem;
+    margin-right: 25rem;
+}
