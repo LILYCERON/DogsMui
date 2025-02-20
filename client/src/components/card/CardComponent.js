@@ -7,17 +7,9 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { CircularProgress, breadcrumbsClasses } from '@mui/material';
-import { useGetTodosQuery } from '../../store/apis/todosApi';
-import { useDispatch } from 'react-redux';
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
