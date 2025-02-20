@@ -17,6 +17,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { CircularProgress, breadcrumbsClasses } from '@mui/material';
 import { useGetTodosQuery } from '../../store/apis/todosApi';
+import { useDispatch } from 'react-redux';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -35,6 +36,18 @@ export default function CardComponent(props) {
     setExpanded(!expanded);
   };
 
+  const [breedFavorite, setBreedFavorite] = React.useState(false)
+
+  const handleBreedFavorite = (e) => {
+    if (!breedFavorite) {
+      setBreedFavorite(!breedFavorite)
+      alert('You have add the breed to favorite')
+    }else{
+      setBreedFavorite(!breedFavorite)
+      alert('Do you want delete this breed of your favorite list?')
+    }
+  }
+
   return (
     <>
       <Card sx={{ minWidth: 255 }}>
@@ -50,7 +63,7 @@ export default function CardComponent(props) {
           />
         </CardContent>
         <CardActions>
-          <IconButton aria-label="add to favorites">
+          <IconButton color={breedFavorite ? "primary" : "defauld"} aria-label="add to favorites" onClick={handleBreedFavorite}>
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="share">
