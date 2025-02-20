@@ -5,6 +5,8 @@
 .div1{
   display: flex;
   flex-direction: column;
+  width: 120rem;
+  background-image: url('utils/background.jpg');
 
 }
 

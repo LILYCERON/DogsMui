@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { green } from '@mui/material/colors';
+import { Box } from '@mui/material';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(green[600]),
@@ -51,14 +52,14 @@ const BootstrapButton = styled(Button)({
 function Landing() {
   return (
     <>
-      <div className='div1'>
+      <Box className='div1'>
         <Stack sx={{height:'10rem' , width:'17rem'}} spacing={3} direction="column">
           <ColorButton variant="contained">Registrarme</ColorButton>
           <BootstrapButton href="/home" variant="contained" disableRipple>
             Explorar API
           </BootstrapButton>
         </Stack>
-      </div>
+      </Box>
     </>
   );
 }

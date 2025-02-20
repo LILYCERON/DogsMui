@@ -9,6 +9,10 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+router.get('/', (req,res)=>{
+    res.send('Bienvenido a la Landing')
+})
+
 router.get('/dogs', async (req, res) => {
 
     const { api_key } = process.env

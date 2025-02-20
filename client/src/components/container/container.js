@@ -1,7 +1,6 @@
 import React from "react";
 import ImageList from '@mui/material/ImageList';
 import CardComponent from "../card/CardComponent";
-import FindReplaceSharpIcon from '@mui/icons-material/FindReplaceSharp';
 import { useGetTodosQuery } from "../../store/apis/todosApi";
 
 
