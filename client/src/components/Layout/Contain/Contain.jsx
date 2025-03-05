@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 
 import ImageList from '@mui/material/ImageList';
-import CardComponent from "../card/CardComponent";
+import CardComponent from "../../Card/CardComponent";
 
 export default function Container({allDogs}) {
     useEffect(()=>{
         console.log('allDogs ha cambiado', allDogs)
     },[allDogs])
+    console.log(allDogs)
 
     return (
         <> 
@@ -20,7 +21,7 @@ export default function Container({allDogs}) {
                         height={breed.height}
                         weight={breed.weight}
                         temperament={breed.temperament}
-                    />) : console.log(allDogs)}
+                    />) : 'Cargando'}
             </ImageList>
         </>
     )
