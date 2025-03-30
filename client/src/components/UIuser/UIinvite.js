@@ -1,19 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Box, ImageList } from "@mui/material";
+import CardInvite from "../Card/CardInvite";
 
-import ImageList from '@mui/material/ImageList';
-import CardComponent from "../../Card/CardComponent";
-
-export default function Container({allDogs}) {
-    useEffect(()=>{
-        console.log('allDogs ha cambiado', allDogs)
-    },[allDogs])
-    console.log(allDogs)
-
+export default function UIinvite({ allDogs }) {
     return (
-        <> 
+        <Box sx={{ mt: 8 }}>
             <ImageList className='container' sx={{ width: '170rm', height: '190rm' }} cols={3} rowHeight={154}>
                 {allDogs.length > 0 ? allDogs.map((breed, index) =>
-                    <CardComponent
+                    <CardInvite
                         key={index}
                         name={breed.name}
                         id={breed.id}
@@ -23,6 +17,6 @@ export default function Container({allDogs}) {
                         temperament={breed.temperament}
                     />) : 'Cargando'}
             </ImageList>
-        </>
+        </Box>
     )
 }

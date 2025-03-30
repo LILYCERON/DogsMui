@@ -7,10 +7,8 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { Drawer } from '@mui/material';
-import PermanentDrawerLeft from './Menu';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,10 +52,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar({ allDogs, filteredDogs, setFilteredDogs }) {
-  const [searchTerm, setSearchTerm] = React.useState("")
-
-  const [Menu, setMenu] = React.useState(false)
+export default function SearchBar({ allDogs, setFilteredDogs,
+  searchTerm, setSearchTerm }) {
 
   /* 
    Esta función filtra los perros según el término de búsqueda
@@ -65,29 +61,19 @@ export default function SearchBar({ allDogs, filteredDogs, setFilteredDogs }) {
    */
 
   function handleSearch(event) {
-    const searchTerm = event.target.value.toLowerCase()
-    setSearchTerm(searchTerm)
+    let Term = event.target.value.toLowerCase()
+    setSearchTerm(Term)
 
     const results = allDogs.filter(obj =>
-      obj.name.toLowerCase().includes(searchTerm));
+      obj.name.toLowerCase().includes(searchTerm.toLowerCase()));
     setFilteredDogs(results);
   }
-
-  function onClickMenu(event) {
-    setMenu(!Menu)
-  }
-  console.log(Menu)
   const drawerWidth = 180;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed"
-        sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          width: Menu ? "100%" : "100%",
-          ml: Menu ? `${drawerWidth}px` : 0,
-          transition: "width 0.3s ease-in-out, margin 0.3s ease-in-out"
-        }}>
+        >
         <Toolbar>
           <IconButton
             size="large"
@@ -95,9 +81,7 @@ export default function SearchBar({ allDogs, filteredDogs, setFilteredDogs }) {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 0.75 }}
-            onClick={onClickMenu}
           >
-            <MenuIcon />
           </IconButton>
           <Typography
             variant="h6"
@@ -118,23 +102,6 @@ export default function SearchBar({ allDogs, filteredDogs, setFilteredDogs }) {
           </Search>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="temporary"
-        sx={{
-          "& .MuiDrawer-paper": {
-            mt: 8, // Mueve el Drawer debajo del AppBar
-            width: drawerWidth,
-            height: "calc(100% - 64px)", // Ajusta la altura sin provocar cambios bruscos
-            display: "flex",
-            flexDirection: "column",
-            overflow: "hidden", // Evita la barra de desplazamiento momentánea
-            transition: "transform 0.3s ease-in-out", // Transición fluida
-            transform: Menu ? "translateX(0)" : "translateX(-100%)", // Desliza en lugar de desaparecer
-          }
-        }} open={Menu}>
-        {/* Drawer (Ahora se controla con menuOpen) */}
-        <PermanentDrawerLeft />
-      </Drawer>
     </Box>
   );
 }

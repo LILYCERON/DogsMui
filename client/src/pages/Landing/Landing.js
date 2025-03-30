@@ -54,8 +54,8 @@ function Landing() {
     <>
       <Box className='div1'>
         <Stack sx={{height:'10rem' , width:'17rem'}} spacing={3} direction="column">
-          <ColorButton variant="contained">Registrarme</ColorButton>
-          <BootstrapButton href="/home" variant="contained" disableRipple>
+          <ColorButton href="/home" variant="contained">Registrarme</ColorButton>
+          <BootstrapButton href="/invite" variant="contained" disableRipple>
             Explorar API
           </BootstrapButton>
         </Stack>

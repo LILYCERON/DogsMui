@@ -22,7 +22,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function CardComponent(props) {
+export default function CardMember(props) {
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -34,7 +34,7 @@ export default function CardComponent(props) {
     if (!breedFavorite) {
       setBreedFavorite(!breedFavorite)
       alert('You have add the breed to favorite')
-    }else{
+    } else {
       setBreedFavorite(!breedFavorite)
       alert('Do you want delete this breed of your favorite list?')
     }
