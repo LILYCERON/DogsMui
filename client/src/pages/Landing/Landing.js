@@ -12,6 +12,14 @@ const ColorButton = styled(Button)(({ theme }) => ({
     backgroundColor: green[500],
   },
 }));
+const Boxlanding= styled(Box)(
+  {position:"fixed",
+     height:"100%", 
+     width:"100%", 
+     border:"0.5rem solid red", 
+     backgroundImage:"client/src/utils/background.jpg"
+  }
+)
 
 const BootstrapButton = styled(Button)({
   boxShadow: 'none',
@@ -52,14 +60,14 @@ const BootstrapButton = styled(Button)({
 function Landing() {
   return (
     <>
-      <Box className='div1'>
-        <Stack sx={{height:'10rem' , width:'17rem'}} spacing={3} direction="column">
+      <Boxlanding >
+        <Stack  sx={{height:40 , width:'17rem'}} spacing={3} direction="column">
           <ColorButton href="/home" variant="contained">Registrarme</ColorButton>
           <BootstrapButton href="/invite" variant="contained" disableRipple>
             Explorar API
           </BootstrapButton>
         </Stack>
-      </Box>
+      </Boxlanding>
     </>
   );
 }
